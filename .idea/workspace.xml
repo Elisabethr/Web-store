@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b51406fe-3b03-45ac-a392-19db735d9bb0" name="Default" comment="failide liigutamine õigetesse kohtadesse">
+    <list default="true" id="b51406fe-3b03-45ac-a392-19db735d9bb0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -328,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520187491501</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="vajaliku faili lisamine giti">
+      <created>1520187586027</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1520187586027</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -369,7 +376,8 @@
     <MESSAGE value="pealeht.js algne fail" />
     <MESSAGE value="mitte commitud vajalikud failid" />
     <MESSAGE value="failide liigutamine õigetesse kohtadesse" />
-    <option name="LAST_COMMIT_MESSAGE" value="failide liigutamine õigetesse kohtadesse" />
+    <MESSAGE value="vajaliku faili lisamine giti" />
+    <option name="LAST_COMMIT_MESSAGE" value="vajaliku faili lisamine giti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
