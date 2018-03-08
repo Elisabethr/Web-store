@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sinu veebipood</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Toode edukalt lisatud</h1>
+<p th:text="'Hind ' + ${customer.id}" />
+<p th:text="'Nimi ' + ${customer.firstname}" />
+<p th:text="'Kirjeldus ' + ${customer.lastname}" />
+<a href="/form">Soovite veel tooteid lisada?</a>
+</body>
+</html>
