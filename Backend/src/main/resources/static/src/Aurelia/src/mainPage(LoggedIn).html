@@ -46,7 +46,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="btn btn-info btn-lg">
+      <a href="mainPage(LoggedIn).html" class="btn btn-info btn-lg">
         <span class="glyphicon glyphicon-home"></span>
       </a>
     </div>
@@ -57,14 +57,18 @@
             <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Arvutid</a></li>
+            <li><a href="#">Audio/video</a></li>
             <li><a href="#">Ehted</a></li>
-            <li><a href="#">Elektroonika</a></li>
             <li><a href="#">Ilu ja tervis</a></li>
+            <li><a href="#">Jalatsid</a></li>
             <li><a href="#">Kodu</a></li>
             <li><a href="#">Kodumasinad</a></li>
+            <li><a href="#">Lastekaubad</a></li>
+            <li><a href="#">Raamatud</a></li>
             <li><a href="#">Riided</a></li>
             <li><a href="#">Telefonid</a></li>
             <li><a href="#">Tööriistad</a></li>
+            <li><a href="#">Varia</a></li>
           </ul>
         </li>
         <li class="active"><a href="#">Sooduspakkumised</a></li>
@@ -90,6 +94,17 @@
                   <div class="form-group">
                     <label for="productName">Tootenimi:</label>
                     <input type="text" th:field="*{firstname}" class="form-control" id="productName">
+                  </div>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="productCategory">Kategooria:</label>
+                      <select class="form-control" id="productCategory">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="productDescription">Selgitus:</label>
@@ -121,6 +136,8 @@
 
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sinu kasutaja</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Ostukorv</a></li>
+        <li><a href="mainPage.html"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
+
       </ul>
     </div>
   </div>
