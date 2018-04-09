@@ -103,14 +103,16 @@
               </div>
               <div class="modal-body">
                 <form action="/action_page.php">
-                  <div class="form-group">
-                    <label for="emailRegistration">Meiliaadress:</label>
-                    <input type="email" class="form-control" id="emailRegistration">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="emailRegistration" type="text" class="form-control" name="email" placeholder="Meiliaadress">
                   </div>
-                  <div class="form-group">
-                    <label for="pwdRegistration">Salasõna:</label>
-                    <input type="password" class="form-control" id="pwdRegistration">
+                  <br>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="pwdRegistration" type="password" class="form-control" name="password" placeholder="Salasõna">
                   </div>
+                  <br>
                   <div class="checkbox">
                     <label><input type="checkbox"> Jäta mind meelde</label>
                   </div>
