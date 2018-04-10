@@ -35,7 +35,7 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Veebipood</h1>
+    <h1>Kodumasinad</h1>
     <p><i>Parim veebipood toodete müümiseks ja ostmiseks</i></p>
   </div>
 </div>
@@ -57,13 +57,13 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategooriad
             <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/arvutid">Arvutid</a></li>
+            <li><a href="#">Arvutid</a></li>
             <li><a href="#">Audio/video</a></li>
             <li><a href="#">Ehted</a></li>
             <li><a href="#">Ilu ja tervis</a></li>
             <li><a href="#">Jalatsid</a></li>
             <li><a href="#">Kodu</a></li>
-            <li><a href="/kodumasinad">Kodumasinad</a></li>
+            <li><a href="#">Kodumasinad</a></li>
             <li><a href="#">Lastekaubad</a></li>
             <li><a href="#">Raamatud</a></li>
             <li><a href="#">Riided</a></li>
@@ -165,7 +165,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-info">
-        <div class="panel-heading">Elektroonika</div>
+        <div class="panel-heading">Kodumasinad</div>
         <div class="panel-body"><img th:src="${items.get(0).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(0).name}" ></div>
           <div class="panel-footer" th:text="${items.get(0).price}" ></div>
@@ -181,7 +181,7 @@
     </div>
     <div class="col-sm-4">
       <div class="panel panel-info">
-        <div class="panel-heading">Telefonid</div>
+        <div class="panel-heading">Kodumasinad</div>
         <div class="panel-body"><img th:src="${items.get(2).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(2).name}" ></div>
           <div class="panel-footer" th:text="${items.get(2).price}" ></div>
@@ -190,7 +190,7 @@
   </div>
 </div><br>
 
-<div class="container" th:object="${items}" method="post">
+<!--div class="container" th:object="${items}" method="post">
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-info">
@@ -217,7 +217,7 @@
       </div>
     </div>
   </div>
-</div><br><br>
+</div><br><br-->
 
 <footer class="container-fluid text-center">
   <p>Online Store Copyright</p>
