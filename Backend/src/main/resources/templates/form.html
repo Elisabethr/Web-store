@@ -6,11 +6,15 @@
 </head>
 <body>
 <h1>Lisa toode</h1>
-<form action="#" th:action="@{/form}" th:object="${customer}" method="post">
-    <p>Hind: <input type="text" th:field="*{id}" /></p>
-    <p>Nimi: <input type="text" th:field="*{firstname}" /></p>
-    <p>Kirjeldus: <input type="text" th:field="*{lastname}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+<form action="#" th:action="@{/form}" th:object="${item}" method="post">
+    <p>Hind: <input type="text" th:field="*{price}" /></p>
+    <p>Nimi: <input type="text" th:field="*{name}" /></p>
+    <p>Kategooria: <input type="text" th:field="*{category}" /></p>
+    <p>Pilt: <input type="text" th:field="*{imageAddress}" /></p>
+    <p><input type="submit" value="Submit" /> </p>
 </form>
+
+<button text="Reset" onclick="location.href = '/loggedin'"  />Reset</button>
+
 </body>
 </html>

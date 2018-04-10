@@ -6,9 +6,10 @@
 </head>
 <body>
 <h1>Toode edukalt lisatud</h1>
-<p th:text="'Hind ' + ${customer.id}" />
-<p th:text="'Nimi ' + ${customer.firstname}" />
-<p th:text="'Kirjeldus ' + ${customer.lastname}" />
+<p th:text="'Hind ' + ${item.price}" />
+<p th:text="'Nimi ' + ${item.name}" />
+<p th:text="'Kirjeldus ' + ${item.description}" />
 <a href="/form">Soovite veel tooteid lisada?</a>
+<a href="/loggedin">Pealehele</a>
 </body>
 </html>

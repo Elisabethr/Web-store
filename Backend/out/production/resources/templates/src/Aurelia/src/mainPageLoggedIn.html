@@ -42,7 +42,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="mainPage(LoggedIn).html" class="btn btn-info btn-lg">
+      <a href="/loggedin" class="btn btn-info btn-lg">
         <span class="glyphicon glyphicon-home"></span>
       </a>
     </div>
@@ -68,7 +68,7 @@
           </ul>
         </li>
         <li class="active"><a href="#">Sooduspakkumised</a></li>
-        <li data-toggle="modal" data-target="#myModal"><a href="#">
+        <li href="/form"  data-toggle="modal" data-target="#myModal"><a href="#">
                 <span class="glyphicon glyphicon-plus">
                 </span> Lisa uus</a>
         </li>
@@ -78,18 +78,18 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Lisa uus toode</h4>
+                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                <h4 class="modal-title" >Lisa uus toode</h4>
               </div>
-              <div class="modal-body">
-                <form action="#" th:action="@{/form}" th:object="${customer}" method="post">
+              <!--div class="modal-body">
+                <form action="#" th:action="@{/form}" th:object="${item}" method="post">
                   <div class="form-group">
                     <label for="productPrice">Hind:</label>
-                    <input type="text" th:field="*{id}" class="form-control" id="productPrice">
+                    <input type="text" th:field="*{price}" class="form-control" id="productPrice">
                   </div>
                   <div class="form-group">
                     <label for="productName">Tootenimi:</label>
-                    <input type="text" th:field="*{firstname}" class="form-control" id="productName">
+                    <input type="text" th:field="*{name}" class="form-control" id="productName">
                   </div>
                   <div class="form-group">
                     <div class="form-group">
@@ -113,7 +113,7 @@
                   </div>
                   <div class="form-group">
                     <label for="productDescription">Selgitus:</label>
-                    <input type="text" th:field="*{lastname}" class="form-control" id="productDescription">
+                    <input type="text" th:field="*{description}" class="form-control" id="productDescription">
                   </div>
                   <label for="productDescription">Lisa tootest pilt:</label>
                   <div class="file btn btn-sm btn-outline-info">
@@ -123,7 +123,7 @@
                   <br>
                   <button type="submit" value="Submit" class="btn btn-info">Lisa toode</button>
                 </form>
-              </div>
+              </div-->
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>
               </div>
@@ -145,58 +145,64 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sinu kasutaja</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Ostukorv</a></li>
-        <li><a href="mainPage.html"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
+        <li><a href="/"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<div class="container">
+<div class="container"  th:object="${items}" method="post">
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Elektroonika</div>
-        <div class="panel-body"><img src="https://images-na.ssl-images-amazon.com/images/I/61DBkN7aPsL._SL1200_.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Kasutatud Sony kõrvaklapid</div>
+        <div class="panel-body"><img th:src="${items.get(0).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer" th:text="${items.get(0).name}" ></div>
+        <div class="panel-footer" th:text="${items.get(0).price}" ></div>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Kodumasinad</div>
-        <div class="panel-body"><img src="https://images.philips.com/is/image/PhilipsConsumer/HD7450_20-IMS-en_HK?wid=494&hei=435&$pnglarge$" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Phillips kohvimasin</div>
+        <div class="panel-body"><img th:src="${items.get(1).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer" th:text="${items.get(1).name}" ></div>
+        <div class="panel-footer" th:text="${items.get(1).price}" ></div>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Telefonid</div>
-        <div class="panel-body"><img src="http://images.samsung.com/is/image/samsung/p5/uk/pcd/smartphones/PCD-J5.png?$ORIGIN_PNG$" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Samsung Galaxy J5</div>
+        <div class="panel-body"><img th:src="${items.get(2).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer" th:text="${items.get(2).name}" ></div>
+        <div class="panel-footer" th:text="${items.get(2).price}" ></div>
       </div>
     </div>
   </div>
 </div><br>
 
-<div class="container">
+<div class="container"  th:object="${items}" method="post">
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-info">
-        <div class="panel-heading">Eheted</div>
-        <div class="panel-body"><img src="https://www.westelm.com/weimgs/ab/images/wcm/products/201809/0046/grand-mirrored-jewelry-box-o.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Valge ehetekarp</div>
+        <div class="panel-heading">Ehted</div>
+        <div class="panel-body"><img th:src="${items.get(3).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer" th:text="${items.get(3).name}" ></div>
+        <div class="panel-footer" th:text="${items.get(3).price}" ></div>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Kodu</div>
-        <div class="panel-body"><img src="https://img.etsystatic.com/il/e08c48/436362914/il_fullxfull.436362914_3bjr.jpg?version=1" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Kootud padjapüüriga padi</div>
+        <div class="panel-body"><img th:src="${items.get(4).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer" th:text="${items.get(4).name}" ></div>
+        <div class="panel-footer" th:text="${items.get(4).price}" ></div>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Tööriistad</div>
-        <div class="panel-body"><img src="https://images-na.ssl-images-amazon.com/images/I/51yPJo4VN2L._SY300_.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Tööriistakarp</div>
+        <div class="panel-body"><img th:src="${items.get(5).imageAddress}" style="width:100%" alt="Image"></div>
+        <div class="panel-footer" th:text="${items.get(5).name}" ></div>
+        <div class="panel-footer" th:text="${items.get(5).price}" ></div>
       </div>
     </div>
   </div>
