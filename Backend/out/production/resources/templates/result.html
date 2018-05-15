@@ -1,15 +1,46 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Sinu veebipood</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Parim veebipood</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <style>
+        /* Remove the navbar's default rounded borders and increase the bottom margin */
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+            margin-bottom: 0;
+            background-image: url("https://i.pinimg.com/originals/f7/07/e3/f707e350c54372ccca2d8745a010561f.jpg");
+            background-size: cover;
+        }
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+    </style>
 </head>
 <body>
+
+<div class="jumbotron">
+    <div class="container text-center">
 <h1>Toode edukalt lisatud</h1>
 <p th:text="'Hind ' + ${item.price}" />
 <p th:text="'Nimi ' + ${item.name}" />
 <p th:text="'Kirjeldus ' + ${item.description}" />
 <a href="/form">Soovite veel tooteid lisada?</a>
 <a href="/loggedin">Pealehele</a>
+    </div>
+</div>
 </body>
 </html>

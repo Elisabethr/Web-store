@@ -9,6 +9,7 @@ public class UserFile {
 
     public String id;
     public String fileName;
+    private User user;
 
     public String title;
 

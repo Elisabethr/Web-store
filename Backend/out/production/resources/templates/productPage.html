@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <title>Parim veebipood</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default rounded borders and increase the bottom margin */
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+            margin-bottom: 0;
+            background-image: url("https://i.pinimg.com/originals/f7/07/e3/f707e350c54372ccca2d8745a010561f.jpg");
+            background-size: cover;
+        }
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+        .gallery-wrap .img-big-wrap img {
+            height: 450px;
+            width: auto;
+            display: inline-block;
+            cursor: zoom-in;
+        }
+        .gallery-wrap .img-small-wrap .item-gallery {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #ddd;
+            margin: 7px 2px;
+            display: inline-block;
+            overflow: hidden;
+        }
+        .gallery-wrap .img-small-wrap {
+            text-align: center;
+        }
+        .gallery-wrap .img-small-wrap img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Veebipood</h1>
+        <p><i>Parim veebipood toodete müümiseks ja ostmiseks</i></p>
+    </div>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/loggedin" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategooriad
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Arvutid</a></li>
+                        <li><a href="#">Audio/video</a></li>
+                        <li><a href="#">Ehted</a></li>
+                        <li><a href="#">Ilu ja tervis</a></li>
+                        <li><a href="#">Jalatsid</a></li>
+                        <li><a href="#">Kodu</a></li>
+                        <li><a href="#">Kodumasinad</a></li>
+                        <li><a href="#">Lastekaubad</a></li>
+                        <li><a href="#">Raamatud</a></li>
+                        <li><a href="#">Riided</a></li>
+                        <li><a href="#">Telefonid</a></li>
+                        <li><a href="#">Tööriistad</a></li>
+                        <li><a href="#">Varia</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="#">Sooduspakkumised</a></li>
+                <li href="/form"  data-toggle="modal" data-target="#myModal"><a href="#">
+                <span class="glyphicon glyphicon-plus">
+                </span> Lisa uus</a>
+                </li>
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                                <h4 class="modal-title" >Lisa uus toode</h4>
+                            </div>
+                            <!--div class="modal-body">
+                              <form action="#" th:action="@{/form}" th:object="${item}" method="post">
+                                <div class="form-group">
+                                  <label for="productPrice">Hind:</label>
+                                  <input type="text" th:field="*{price}" class="form-control" id="productPrice">
+                                </div>
+                                <div class="form-group">
+                                  <label for="productName">Tootenimi:</label>
+                                  <input type="text" th:field="*{name}" class="form-control" id="productName">
+                                </div>
+                                <div class="form-group">
+                                  <div class="form-group">
+                                    <label for="productCategory">Kategooria:</label>
+                                    <select class="form-control" id="productCategory">
+                                      <option>Arvutid</option>
+                                      <option>Audio/video</option>
+                                      <option>Ehted</option>
+                                      <option>Ilu ja tervis</option>
+                                      <option>Jalatsid</option>
+                                      <option>Kodu</option>
+                                      <option>Kodumasinad</option>
+                                      <option>Lastekaubad</option>
+                                      <option>Raamatud</option>
+                                      <option>Riided</option>
+                                      <option>Telefonid</option>
+                                      <option>Tööriistad</option>
+                                      <option>Varia</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="productDescription">Selgitus:</label>
+                                  <input type="text" th:field="*{description}" class="form-control" id="productDescription">
+                                </div>
+                                <label for="productDescription">Lisa tootest pilt:</label>
+                                <div class="file btn btn-sm btn-outline-info">
+                                  <input type="file" name="file"/>
+                                </div>
+                                <br>
+                                <br>
+                                <button type="submit" value="Submit" class="btn btn-info">Lisa toode</button>
+                              </form>
+                            </div-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <li><a href="#">Kontakt</a></li>
+                <form class="navbar-form navbar-left" action="/action_page.php">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Otsi">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sinu kasutaja</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Ostukorv</a></li>
+                <li><a href="/"><span class="glyphicon glyphicon-log-out"></span> Logi välja</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+<div class="container" th:object="${item}" method="post">
+    <div class="card">
+        <div class="row">
+            <aside class="col-sm-5 border-right">
+                <article class="gallery-wrap">
+                    <div class="img-big-wrap">
+                        <div> <a href="#"><img th:src="${item.imageAddress}"></a></div>
+                    </div> <!-- slider-product.// -->
+                    <div class="img-small-wrap">
+                        <div class="item-gallery"> <img th:src="${item.imageAddress}"> </div>
+                        <div class="item-gallery"> <img th:src="${item.imageAddress}"> </div>
+
+                    </div> <!-- slider-nav.// -->
+                </article> <!-- gallery-wrap .end// -->
+            </aside>
+            <aside class="col-sm-7">
+                <article class="card-body p-5">
+                    <h3 class="title mb-3" th:text="${item.name}"></h3>
+
+                    <p class="price-detail-wrap">
+            <span color="gree" class="price h3 text-warning">
+              <span class="currency">EUR </span><span class="num" th:text="${item.price}"></span>
+            </span>
+                    </p> <!-- price-detail-wrap .// -->
+                    <dl class="item-property">
+                        <dt>Selgitus</dt>
+                        <dd><p th:text="${item.description}"></p></dd>
+                    </dl>
+                    <dl class="param param-feature">
+                        <dt>Mudel#</dt>
+                        <dd>21754</dd>
+                    </dl>  <!-- item-property-hor .// -->
+                    <dl class="param param-feature">
+                        <dt>Värv</dt>
+                        <dd>Must</dd>
+                    </dl>  <!-- item-property-hor .// -->
+                    <dl class="param param-feature">
+                        <dt>Kohaletoimetamine</dt>
+                        <dd>Tallinn, Tartu</dd>
+                    </dl>  <!-- item-property-hor .// -->
+
+                    <hr>
+
+                    <a href="#" onclick="location.href='https://www.ebay.com/';"  class="btn btn-lg btn-info text-uppercase"> Osta </a>
+                    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Lisa korvi </a>
+                </article> <!-- card-body.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+    </div> <!-- card.// -->
+</div>
+<!--container.//-->
+<footer class="container-fluid text-center">
+    <p>Online Store Copyright</p>
+    <form class="form-inline">Uudiskirjad:
+        <input type="email" class="form-control" size="50" placeholder="Meili aadress">
+        <button type="button" class="btn btn-info">Liitu</button>
+    </form>
+</footer>
+</body>
+</html>

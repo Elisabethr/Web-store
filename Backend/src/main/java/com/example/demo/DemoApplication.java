@@ -14,20 +14,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @SpringBootApplication
-public class DemoApplication {
+public class
+DemoApplication {
 
     @Controller
     public class HelloController {
         private  List<Item> list = new ArrayList();
+        private List<User> userList =new ArrayList<>();
         private  List<Item> mainPageList = new ArrayList();
         private  List<Item> arvutidList = new ArrayList();
         private  List<Item> kodumasinadList = new ArrayList();
         private long id = 0;
+        private String key = "Bar12345Bar12345";
 
 
         public HelloController() {
@@ -209,6 +215,119 @@ public class DemoApplication {
 
             return "result";
         }
+
+        @RequestMapping(value="/userForm", method=RequestMethod.GET)
+        public String registerUserGet(Model model) {
+            User user = new User();
+            model.addAttribute("user", user);
+
+
+            return "userForm";
+        }
+
+
+        @RequestMapping(value="/userForm", method=RequestMethod.POST)
+        public String registerUserPost(@ModelAttribute User user, Model model) {
+
+            model.addAttribute("user", user);
+            String info = String.format("nimi = %s, eMail = %s, pass = %s",
+                    user.getName(), user.geteMail(), user.getPass());
+
+            userList.add(user);
+
+            return "userResult";
+        }
+
+        @RequestMapping(value="/loginForm", method=RequestMethod.GET)
+        public String userLoginGet(Model model) {
+            model.addAttribute("user", new User());
+            return "loginForm";
+        }
+
+        @RequestMapping(value="/loginForm", method=RequestMethod.POST)
+        public String userLoginPost(@ModelAttribute User user, Model model) {
+
+            model.addAttribute("user", user);
+            String info = String.format("nimi = %s, eMail = %s, pass = %s",
+                    user.getName(), user.geteMail(), user.getPass());
+
+            for (User user1: userList) {
+                if (user1.getName().equals(user.getName()) && user1.getPass().equals(user.getPass())) {
+                    newMainList();
+                    model.addAttribute("items", mainPageList);
+                    return "src/Aurelia/src/mainPageLoggedIn.html";
+                }
+            }
+
+            return "errorPage";
+        }
+
+        @GetMapping(value = "/productPage0")
+        public String returnItem0(Model model) {
+            model.addAttribute("item", mainPageList.get(0));
+            return "productPage";
+        }
+
+        @GetMapping(value = "/productPage1")
+        public String returnItem1(Model model) {
+            model.addAttribute("item", mainPageList.get(1));
+            return "productPage";
+        }
+
+        @GetMapping(value = "/productPage2")
+        public String returnItem2(Model model) {
+            model.addAttribute("item", mainPageList.get(2));
+            return "productPage";
+        }
+
+        @GetMapping(value = "/productPage3")
+        public String returnItem3(Model model) {
+            model.addAttribute("item", mainPageList.get(3));
+            return "productPage";
+        }
+
+        @GetMapping(value = "/productPage4")
+        public String returnItem4(Model model) {
+            model.addAttribute("item", mainPageList.get(4));
+            return "productPage";
+        }
+
+        @GetMapping(value = "/productPage5")
+        public String returnItem5(Model model) {
+            model.addAttribute("item", mainPageList.get(5));
+            return "productPage";
+        }
+
+
+        @GetMapping(value = "/productPageK0")
+        public String returnItemK0(Model model) {
+            model.addAttribute("item", kodumasinadList.get(0));
+            return "productPage";
+        }
+
+        @GetMapping(value = "/productPageK1")
+        public String returnItemK1(Model model) {
+            model.addAttribute("item", kodumasinadList.get(1));
+            return "productPage";
+        }
+
+        @GetMapping(value = "/productPageK2")
+        public String returnItemK2(Model model) {
+            model.addAttribute("item", kodumasinadList.get(2));
+            return "productPage";
+        }
+
+
+
+        @RequestMapping(value="/productPage", method=RequestMethod.POST)
+        public String returnItem(@ModelAttribute Item item, Model model) {
+            model.addAttribute("item", item);
+            String info = String.format("nimi = %s",
+                    item.getName());
+
+            return "productPage";
+        }
+
 
 
         /*

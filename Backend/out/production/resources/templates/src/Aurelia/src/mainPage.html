@@ -86,7 +86,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!-- Trigger the modal with a button -->
-        <li data-toggle="modal" data-target="#myModal"><a href="#">
+        <li href="/userForm" data-toggle="modal" data-target="#myModal"><a href="#">
                 <span class="glyphicon glyphicon-user">
                 </span> Registreeri</a>
         </li>
@@ -123,7 +123,7 @@
             </div>
           </div>
         </div>
-        <li data-toggle="modal" data-target="#my2Modal"><a href="/loggedin"><span class="glyphicon glyphicon-log-in"></span> Logi sisse</a></li>
+        <li data-toggle="modal" data-target="#my2Modal"><a href="/loginForm"><span class="glyphicon glyphicon-log-in"></span> Logi sisse</a></li>
         <!-- Modal -->
         <div id="my2Modal" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -161,12 +161,12 @@
     </div>
   </div>
 </nav>
-<div class="container" th:object="${items}" method="post">>
+<div class="container" th:object="${items}" method="post">
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Elektroonika</div>
-        <div class="panel-body"><img th:src="${items.get(0).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body"  onclick="location.href = '/productPage0'"><img th:src="${items.get(0).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(0).name}" ></div>
           <div class="panel-footer" th:text="${items.get(0).price}" ></div>
       </div>
@@ -174,7 +174,7 @@
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Kodumasinad</div>
-        <div class="panel-body"><img th:src="${items.get(1).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body" onclick="location.href = '/productPage1'"><img th:src="${items.get(1).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(1).name}" ></div>
           <div class="panel-footer" th:text="${items.get(1).price}" ></div>
       </div>
@@ -182,7 +182,7 @@
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Telefonid</div>
-        <div class="panel-body"><img th:src="${items.get(2).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body" onclick="location.href = '/productPage2'"><img th:src="${items.get(2).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(2).name}" ></div>
           <div class="panel-footer" th:text="${items.get(2).price}" ></div>
       </div>
@@ -195,7 +195,7 @@
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Ehted</div>
-        <div class="panel-body"><img th:src="${items.get(3).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body" onclick="location.href = '/productPage3'"><img th:src="${items.get(3).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(3).name}" ></div>
           <div class="panel-footer" th:text="${items.get(3).price}" ></div>
       </div>
@@ -203,7 +203,7 @@
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Kodu</div>
-        <div class="panel-body"><img th:src="${items.get(4).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body" onclick="location.href = '/productPage4'"><img th:src="${items.get(4).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(4).name}" ></div>
           <div class="panel-footer" th:text="${items.get(4).price}" ></div>
       </div>
@@ -211,7 +211,7 @@
     <div class="col-sm-4">
       <div class="panel panel-info">
         <div class="panel-heading">Tööriistad</div>
-        <div class="panel-body"><img th:src="${items.get(5).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-body" onclick="location.href = '/productPage5'"><img th:src="${items.get(5).imageAddress}" class="img-responsive" style="width:100%" alt="Image"></div>
           <div class="panel-footer" th:text="${items.get(5).name}" ></div>
           <div class="panel-footer" th:text="${items.get(5).price}" ></div>
       </div>

@@ -34,14 +34,13 @@
 
 <div class="jumbotron">
     <div class="container text-center">
-<h1>Lisa toode</h1>
-<form action="#" th:action="@{/form}" th:object="${item}" method="post">
-    <p>Hind: <input type="text" th:field="*{price}" /></p>
-    <p>Nimi: <input type="text" th:field="*{name}" /></p>
-    <p>Kategooria: <input type="text" th:field="*{category}" /></p>
-    <p>Pilt: <input type="text" th:field="*{imageAddress}" /></p>
-    <p><input type="submit" value="Submit" /> </p>
-</form>
+    <h1>Registreeri</h1>
+    <form action="#" th:action="@{/userForm}" th:object="${user}" method="post">
+        <p>Nimi: <input type="text" th:field="*{name}" /></p>
+        <p>E-mail <input type="text" th:field="*{eMail}" /></p>
+        <p>Salasõna <input type="password" th:field="*{pass}" /></p>
+        <p><input type="submit" value="Submit" /> </p>
+    </form>
 
     <p><input type="Button" value="Reset" onclick="location.href = '/loggedin'" /> </p>
 </div>
